@@ -1,0 +1,13 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    uses: exponentialcherub/deploy-pi/.github/workflows/deploy-pi.yml@v1.0.5
+    with:
+      app-name: "fpl-worker"
+      startup-cmd: "python fpl_worker.py"
+      branch: "main"
+    secrets: inherit
